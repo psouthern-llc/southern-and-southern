@@ -230,7 +230,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.21"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.22"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -310,12 +310,14 @@ function SoundPage({ setPage }) {
       ),
       h("div", { className: "sec-head" }, "Equipment"),
       
-      h("div", { className: "eq-grid" },
-        ...EQUIPMENT.map(cat =>
-          h("div", { className: "eq-row", key: cat.category },
-            h("div", { className: "eq-cell-cat" }, cat.category),
-            h("div", { className: "eq-cell-items" },
-              ...cat.items.map(i => h("span", { className: "eq-item-inline", key: i }, i))
+      h("table", { style: { width:"100%", borderCollapse:"collapse", marginBottom:"5rem" } },
+        h("tbody", null,
+          ...EQUIPMENT.map(cat =>
+            h("tr", { key: cat.category, style: { borderBottom:"1px solid rgba(220,215,205,.07)" } },
+              h("td", { style: { fontSize:".6rem", fontWeight:"500", letterSpacing:".2em", textTransform:"uppercase", color:"rgba(123,175,212,.65)", padding:".85rem 2rem .85rem 0", verticalAlign:"top", whiteSpace:"nowrap", width:"160px" } }, cat.category),
+              h("td", { style: { padding:".85rem 0", verticalAlign:"top" } },
+                cat.items.map((item, i) => h("div", { key: i, style: { fontSize:".9rem", fontWeight:"300", color:"rgba(220,215,205,.68)", lineHeight:"1.7" } }, item))
+              )
             )
           )
         )
