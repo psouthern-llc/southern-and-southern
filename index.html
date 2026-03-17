@@ -245,7 +245,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.30"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.31"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -373,7 +373,6 @@ function PicturePage({ setPage }) {
       h("div", { className: "bio" },
         h("p", null, "Aleksandra Gezentsvey is a documentary film editor whose work is defined by a commitment to story, emotion, and immersive storytelling. Born and raised in Tashkent, Uzbekistan, she immigrated to the United States at sixteen and graduated from the Purchase Film Conservatory before building a career at the intersection of independent documentary and major platform distribution."),
         h("p", null, "Her co-editing work on ", h("em", null, "Navalny"), " \u2014 Daniel Roher\u2019s portrait of Russian opposition leader Alexei Navalny \u2014 earned an Academy Award\u00AE for Best Documentary Feature and a BAFTA. Her earlier work on ", h("em", null, "Jim: The James Foley Story"), " received the Sundance Audience Award. She has worked with directors including Alex Gibney, Fisher Stevens, Jehane Nourjaim, and Karim Amer, with films appearing on HBO, Netflix, and Hulu."),
-        h("p", null, "She brings to each project a deep focus on the fly-on-the-wall material that reveals character and builds worlds \u2014 finding the rhythm beneath the surface of documentary footage that transforms observation into experience.")
       ),
 
       h("div", { className: "sec-head sec-head-picture" }, "Selected Credits"),
