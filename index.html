@@ -59,15 +59,15 @@ const CSS = `
 *{box-sizing:border-box;margin:0;padding:0;}
 ::selection{background:rgba(123,175,212,0.22);}
 body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color:#ddd8d0;}
-.home{display:flex;flex-direction:row;height:100vh;width:100vw;overflow:hidden;position:relative;}
-.half{flex:1;position:relative;cursor:pointer;overflow:hidden;min-width:0;transition:flex .78s cubic-bezier(.76,0,.24,1);}
+.home{display:flex;flex-direction:row;height:100vh;width:100vw;overflow:hidden;position:relative;isolation:isolate;}
+.half{flex:1;position:relative;cursor:pointer;overflow:visible;min-width:0;transition:flex .78s cubic-bezier(.76,0,.24,1);}
 .half:hover{flex:1.26;}
 
 .imdb-link{display:inline-block;margin-top:1.2rem;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7bafd4;text-decoration:none;border:1px solid rgba(123,175,212,.35);padding:.5rem 1rem;transition:background .25s ease,color .25s ease;}
 .imdb-link:hover{background:rgba(123,175,212,.12);}
 .imdb-link-picture{color:#c8954a!important;border-color:rgba(200,149,74,.35)!important;}
 .imdb-link-picture:hover{background:rgba(200,149,74,.1)!important;}
-.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.55);transform:scale(1.12);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);}
+.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.55);transform:scale(1.12);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
 .half:hover .bg-blur{filter:blur(16px) brightness(.65);transform:scale(1.08);}
 .wash{position:absolute;inset:0;z-index:2;}
 .wash-sound{background:linear-gradient(130deg,rgba(8,20,45,.45) 0%,transparent 60%);}
@@ -75,15 +75,18 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .vign{position:absolute;inset:0;z-index:3;}
 .vign-left{background:linear-gradient(to top,#08090c 0%,rgba(8,9,12,.15) 45%,transparent 70%),linear-gradient(to right,#08090c 0%,rgba(8,9,12,.5) 20%,transparent 55%),linear-gradient(to left,#08090c 0%,rgba(8,9,12,.75) 15%,transparent 45%);}
 .vign-right{background:linear-gradient(to top,#0c0a08 0%,rgba(12,10,8,.15) 45%,transparent 70%),linear-gradient(to left,#0c0a08 0%,rgba(12,10,8,.5) 20%,transparent 55%),linear-gradient(to right,#0c0a08 0%,rgba(12,10,8,.75) 15%,transparent 45%);}
-.hc{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;padding:3.2rem;opacity:0;transform:translateY(14px);transition:opacity .95s ease,transform .95s ease;}
+.hc{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;padding:3.2rem;opacity:0;transform:translateY(14px);transition:opacity .95s ease,transform .95s ease;overflow:visible;}
 .hc.vis{opacity:1;transform:translateY(0);}
 .hc-right{align-items:flex-end;text-align:right;}
-.over{font-size:clamp(.6rem,.85vw,.72rem);font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:rgba(123,175,212,.55);margin-bottom:.7rem;transition:color .3s ease,letter-spacing .3s ease;}
+.over{font-size:.72rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:rgba(123,175,212,.55);margin-bottom:.6rem;transition:color .3s ease;}
 .half:hover .over{color:#7bafd4;letter-spacing:.38em;}
 .over-picture{color:rgba(200,149,74,.55);}
 .half:hover .over-picture{color:#c8954a;}
 .hname{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(2.4rem,4.2vw,4.4rem);line-height:1.05;color:#f0ebe3;margin-bottom:.6rem;text-shadow:0 3px 35px rgba(0,0,0,.7);}
-.hrole{font-size:clamp(.78rem,1.05vw,.92rem);font-weight:300;color:rgba(220,215,205,.52);margin-bottom:2rem;line-height:1.6;transition:color .3s ease;}
+.hname-overflow{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(1.6rem,2.4vw,2.8rem);line-height:1.1;color:#f0ebe3;margin-bottom:.6rem;text-shadow:0 3px 40px rgba(0,0,0,.8);position:relative;white-space:nowrap;letter-spacing:-.01em;}
+.hname-overflow-right{left:0;transform:none;}
+.hname-overflow-left{right:0;text-align:right;}
+.hrole{font-size:clamp(.9rem,1.1vw,1.05rem);font-weight:300;letter-spacing:.02em;color:rgba(220,215,205,.6);margin-bottom:2rem;line-height:1.6;transition:color .3s ease;}
 .half:hover .hrole{color:rgba(220,215,205,.8);}
 .enter-btn{display:inline-flex;align-items:center;gap:.7rem;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(123,175,212,0);background:none;border:none;cursor:pointer;padding:0;transition:color .4s ease;}
 .half:hover .enter-btn{color:#7bafd4;}
@@ -97,12 +100,12 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .half:hover .badges{opacity:1;transform:translateY(0);}
 .bl{left:3.2rem;}.br{right:3.2rem;align-items:flex-end;}
 .badge{font-size:.58rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(220,215,205,.45);border:1px solid rgba(123,175,212,.15);padding:.25rem .55rem;background:rgba(0,0,0,.42);white-space:nowrap;}
-.vdiv{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(123,175,212,.12) 15%,rgba(123,175,212,.22) 48%,rgba(200,149,74,.12) 52%,rgba(200,149,74,.18) 85%,transparent 100%);z-index:15;transform:translateX(-50%);}
+.vdiv{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(123,175,212,.12) 15%,rgba(123,175,212,.22) 48%,rgba(200,149,74,.12) 52%,rgba(200,149,74,.18) 85%,transparent 100%);z-index:8;transform:translateX(-50%);}
 .lockup{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:20;text-align:center;pointer-events:none;opacity:0;transition:opacity 1.5s ease .6s;}
 .lockup.vis{opacity:1;}
-.lname{font-weight:300;font-size:clamp(.58rem,.9vw,.72rem);letter-spacing:.4em;text-transform:uppercase;color:rgba(220,215,205,.5);white-space:nowrap;text-shadow:0 0 30px rgba(0,0,0,.95);}
-.lrule{width:1px;height:2.5rem;background:linear-gradient(to bottom,transparent,rgba(123,175,212,.55),rgba(200,149,74,.55),transparent);margin:.85rem auto;}
-.lsub{font-size:.5rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(123,175,212,.28);}
+.lname{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(1.6rem,2.8vw,3.4rem);letter-spacing:.03em;color:rgba(240,235,227,.88);white-space:nowrap;text-shadow:0 2px 40px rgba(0,0,0,1);line-height:1.05;}
+.lrule{width:1px;height:1rem;background:linear-gradient(to bottom,transparent,rgba(123,175,212,.55),rgba(200,149,74,.55),transparent);margin:.6rem auto;}
+.lsub{font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(123,175,212,.35);}
 .ipage{min-height:100vh;opacity:0;transform:translateY(6px);transition:opacity .65s ease,transform .65s ease;}
 .ipage.vis{opacity:1;transform:translateY(0);}
 .inav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(6,6,8,.97) 0%,transparent 100%);}
@@ -193,19 +196,14 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')" } }),
       h("div", { className: "wash wash-picture" }),
       h("div", { className: "vign vign-left" }),
-      h("div", { className: "badges bl" },
-        h("span", { className: "badge" }, "Academy Award\u00AE \u00B7 Navalny"),
-        h("span", { className: "badge" }, "BAFTA \u00B7 Navalny"),
-        h("span", { className: "badge" }, "Sundance Award \u00B7 Jim: The James Foley Story")
-      ),
+  
       h("div", { className: "hc " + (entered ? "vis" : ""), style: { transitionDelay: "0.12s" } },
         h("div", { className: "over over-picture" }, "Picture"),
-        h("div", { className: "hname" }, "Aleksandra", h("br"), "Gezentsvey"),
-        h("div", { className: "hrole" }, "Documentary Film Editor"),
+        h("div", { className: "hname-overflow hname-overflow-right" }, "Aleksandra", h("br"), "Gezentsvey"),
+        h("div", { className: "hrole" }, "Documentarian"),
         h("button", { className: "enter-btn enter-btn-picture enter-btn-rev" }, h("span", null, "Enter"), h("span", { className: "eline eline-picture" }))
       )
-    )
-  );
+    ),
     h("div", { className: "vdiv" }),
     h("div", { className: "lockup " + (entered ? "vis" : "") },
       h("div", { className: "lname" }, "Southern & Southern"),
@@ -216,18 +214,15 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
-      h("div", { className: "badges br" },
-        h("span", { className: "badge" }, "Cannes 2025 \u00B7 The History of Sound"),
-        h("span", { className: "badge" }, "A24 \u00B7 Good Time \u00B7 If I Had Legs I'd Kick You"),
-        h("span", { className: "badge" }, "Pedro Almod\u00F3var \u00B7 The Room Next Door")
-      ),
+  
       h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
         h("div", { className: "over" }, "Sound"),
-        h("div", { className: "hname" }, "Patrick J.", h("br"), "Southern"),
+        h("div", { className: "hname-overflow hname-overflow-left" }, "Patrick J.", h("br"), "Southern"),
         h("div", { className: "hrole" }, "Production Sound Mixer", h("br"), "IATSE Local 52"),
         h("button", { className: "enter-btn" }, h("span", null, "Enter"), h("span", { className: "eline" }))
       )
-    ),
+    )
+  );
 }
 
 function SoundPage({ setPage }) {
@@ -299,7 +294,7 @@ function PicturePage({ setPage }) {
       h("div", { className: "hcont hcont-right" },
         h("div", { className: "ilbl ilbl-picture" }, "Picture"),
         h("div", { className: "iname" }, "Aleksandra", h("br"), "Gezentsvey"),
-        h("div", { className: "irole" }, "Documentary Film Editor"),
+        h("div", { className: "irole" }, "Documentarian"),
         h("a", { href: "https://www.imdb.com/name/nm2700075/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link imdb-link-picture" }, "View IMDb Profile \u2197")
       ),
       h("div", { className: "abar abar-left" },
