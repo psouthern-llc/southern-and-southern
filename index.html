@@ -68,14 +68,24 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .imdb-link:hover{background:rgba(123,175,212,.12);}
 .imdb-link-picture{color:#c8954a!important;border-color:rgba(200,149,74,.35)!important;}
 .imdb-link-picture:hover{background:rgba(200,149,74,.1)!important;}
-.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.55);transform:scale(1.12);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
-.half:hover .bg-blur{filter:blur(0px) brightness(.72);transform:scale(1.02);}
+
+/* Reversed blur: sharp at rest, softens on hover */
+.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(0px) brightness(.55);transform:scale(1.04);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
+.half:hover .bg-blur{filter:blur(6px) brightness(.70);transform:scale(1.08);}
+
 .wash{position:absolute;inset:0;z-index:2;}
 .wash-sound{background:linear-gradient(130deg,rgba(8,20,45,.45) 0%,transparent 60%);}
 .wash-picture{background:linear-gradient(230deg,rgba(60,32,5,.45) 0%,transparent 60%);}
+
+/* Elegant 2-layer vignette: radial edge darkening + bottom fade */
 .vign{position:absolute;inset:0;z-index:3;}
-.vign-left{background:linear-gradient(to top,#08090c 0%,rgba(8,9,12,.15) 45%,transparent 70%),linear-gradient(to right,#08090c 0%,rgba(8,9,12,.5) 20%,transparent 55%),linear-gradient(to left,#08090c 0%,rgba(8,9,12,.75) 15%,transparent 45%),linear-gradient(rgba(8,9,12,.22),rgba(8,9,12,.22));}
-.vign-right{background:linear-gradient(to top,#0c0a08 0%,rgba(12,10,8,.15) 45%,transparent 70%),linear-gradient(to left,#0c0a08 0%,rgba(12,10,8,.5) 20%,transparent 55%),linear-gradient(to right,#0c0a08 0%,rgba(12,10,8,.75) 15%,transparent 45%);}
+.vign-left{background:
+  linear-gradient(to top,#08090c 0%,rgba(8,9,12,.55) 22%,transparent 52%),
+  radial-gradient(ellipse at 50% 50%,transparent 35%,rgba(8,9,12,.68) 100%);}
+.vign-right{background:
+  linear-gradient(to top,#0c0a08 0%,rgba(12,10,8,.55) 22%,transparent 52%),
+  radial-gradient(ellipse at 50% 50%,transparent 35%,rgba(12,10,8,.68) 100%);}
+
 .hc{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;justify-content:flex-end;padding:3.2rem;opacity:0;transform:translateY(14px);transition:opacity .95s ease,transform .95s ease;overflow:visible;}
 .hc.vis{opacity:1;transform:translateY(0);}
 .hc-right{align-items:flex-end;text-align:right;}
@@ -152,13 +162,16 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .eq-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.35rem 2rem;}
 .eq-item{font-size:.9rem;font-weight:300;color:rgba(220,215,205,.6);padding:.32rem 0 .32rem .85rem;border-bottom:1px solid rgba(220,215,205,.05);position:relative;}
 .eq-item::before{content:'';position:absolute;left:0;top:50%;width:.28rem;height:1px;background:rgba(123,175,212,.55);}
-.cbar{padding:2.5rem 0 1.5rem;border-top:1px solid rgba(123,175,212,.18);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+
+/* Get in touch — prominent closing section */
+.cbar{padding:4.5rem 0 3rem;border-top:1px solid rgba(123,175,212,.18);text-align:center;margin-top:1rem;}
 .cbar-picture{border-top-color:rgba(200,149,74,.18)!important;}
-.cbar-lbl{font-size:.62rem;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:rgba(220,215,205,.3);}
-.cbar-link{font-size:.95rem;font-weight:400;color:#7bafd4;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .25s ease,opacity .25s ease;}
-.cbar-link:hover{opacity:.75;border-bottom-color:#7bafd4;}
-.cbar-link-picture{color:#c8954a!important;}
+.cbar-lbl{display:block;font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#f0ebe3;margin-bottom:1.4rem;letter-spacing:.01em;}
+.cbar-link{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:300;color:#7bafd4;text-decoration:none;border-bottom:1px solid rgba(123,175,212,.3);padding-bottom:.2rem;transition:opacity .25s ease,border-color .25s ease;}
+.cbar-link:hover{opacity:.7;border-bottom-color:#7bafd4;}
+.cbar-link-picture{color:#c8954a!important;border-bottom-color:rgba(200,149,74,.3)!important;}
 .cbar-link-picture:hover{border-bottom-color:#c8954a!important;}
+
 @media(max-width:768px){
   .home{flex-direction:column;}
   .vdiv{width:100%;height:1px;top:50%;left:0;bottom:auto;transform:translateY(-50%);}
@@ -175,65 +188,18 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
   .cn{display:none;}
   .eq-list{grid-template-columns:1fr;}
   .vign-left,.vign-right{background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.55) 35%,rgba(9,9,11,.05) 65%,transparent 100%);}
-  .bg-blur{filter:blur(12px) brightness(.7);transform:scale(1.08);}
+  .bg-blur{filter:blur(0px) brightness(.6);transform:scale(1.04);}
 }
 `;
-
-const PASSWORD = "catbutt69";
-
-function PasswordGate({ onUnlock }) {
-  const [value, setValue] = useState("");
-  const [error, setError] = useState(false);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setVisible(true), 80); return () => clearTimeout(t); }, []);
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (value === PASSWORD) { onUnlock(); }
-    else { setError(true); setValue(""); setTimeout(() => setError(false), 1800); }
-  }
-  return h("div", { style: { minHeight:"100vh", background:"#09090b", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontFamily:"'DM Sans',sans-serif" } },
-    h("style", null, `
-      .pw-wrap{display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease;}
-      .pw-wrap.vis{opacity:1;transform:translateY(0);}
-      .pw-logo{font-size:.65rem;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:rgba(220,215,205,.35);margin-bottom:2.5rem;}
-      .pw-rule{width:1px;height:2rem;background:linear-gradient(to bottom,transparent,rgba(123,175,212,.3),transparent);margin-bottom:2.5rem;}
-      .pw-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:#f0ebe3;margin-bottom:.4rem;text-align:center;}
-      .pw-sub{font-size:.8rem;font-weight:300;color:rgba(220,215,205,.35);margin-bottom:2.5rem;font-style:italic;}
-      .pw-form{display:flex;flex-direction:column;align-items:center;gap:.9rem;width:260px;}
-      .pw-input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(123,175,212,.2);color:#f0ebe3;font-family:'DM Sans',sans-serif;font-size:.95rem;padding:.7rem 1rem;outline:none;text-align:center;letter-spacing:.1em;transition:border-color .25s ease;}
-      .pw-input:focus{border-color:rgba(123,175,212,.6);}
-      .pw-input.err{border-color:rgba(200,80,80,.6);animation:shake .4s ease;}
-      .pw-btn{width:100%;background:none;border:1px solid rgba(123,175,212,.35);color:#7bafd4;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;padding:.7rem;cursor:pointer;transition:background .25s ease;}
-      .pw-btn:hover{background:rgba(123,175,212,.1);}
-      .pw-error{font-size:.72rem;color:rgba(200,80,80,.8);height:1rem;}
-      @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Playfair+Display:wght@400&display=swap');
-    `),
-    h("div", { className: "pw-wrap" + (visible ? " vis" : "") },
-      h("div", { className: "pw-logo" }, "Southern & Southern LLC"),
-      h("div", { className: "pw-rule" }),
-      h("img", { src: "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/IMG_0822.jpg", alt: "Rufus", style: { width: "180px", height: "180px", objectFit: "cover", borderRadius: "50%", marginBottom: "1.5rem", filter: "brightness(0.95)" } }),
-      h("div", { className: "pw-title" }, "Coming Soon"),
-      h("div", { className: "pw-sub" }, "Site under construction"),
-      h("form", { className: "pw-form", onSubmit: handleSubmit },
-        h("input", { className: "pw-input" + (error ? " err" : ""), type: "password", placeholder: "Password", value, onChange: e => setValue(e.target.value), autoFocus: true }),
-        h("button", { className: "pw-btn", type: "submit" }, "Enter"),
-        h("div", { className: "pw-error" }, error ? "Incorrect password" : "")
-      )
-    )
-  );
-}
 
 function App() {
   const [page, setPage] = useState("home");
   const [entered, setEntered] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
   useEffect(() => { const t = setTimeout(() => setEntered(true), 120); return () => clearTimeout(t); }, []);
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
-  if (!unlocked) return h(PasswordGate, { onUnlock: () => setUnlocked(true) });
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.26"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.27"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -246,7 +212,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')" } }),
       h("div", { className: "wash wash-picture" }),
       h("div", { className: "vign vign-left" }),
-  
+
       h("div", { className: "hc " + (entered ? "vis" : ""), style: { transitionDelay: "0.12s" } },
         h("div", { className: "over over-picture" }, "Picture"),
         h("div", { className: "hname-overflow hname-overflow-right" }, "Aleks", h("br"), "Gezentsvey"),
@@ -264,7 +230,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
-  
+
       h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
         h("div", { className: "over" }, "Sound"),
         h("div", { className: "hname-overflow hname-overflow-left" }, "Patrick J.", h("br"), "Southern"),
@@ -293,7 +259,6 @@ function SoundPage({ setPage }) {
         h("div", { className: "irole" }, "Production Sound Mixer \u00B7 IATSE Local 52"),
         h("a", { href: "https://www.imdb.com/name/nm5460349/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link" }, "View IMDb Profile \u2197")
       ),
-
     ),
     h("div", { className: "ibody" },
       h("div", { className: "sec-head" }, "Biography"),
@@ -302,7 +267,7 @@ function SoundPage({ setPage }) {
         h("p", null, "His filmography spans prestige independent cinema and major studio productions alike, with a particular affinity for projects that push the boundaries of on-set audio capture. On ", h("em", null, "The History of Sound"), ", he pursued an ambitious goal: every sound in the film \u2014 dialogue and music both \u2014 recorded live on set, including folk performances captured outdoors in the woods of New Jersey."),
         h("p", null, "He has collaborated with directors including Pedro Almod\u00F3var, the Safdie Brothers, Alex Ross Perry, and Oliver Hermanus, and his work has appeared on A24, Netflix, and in wide theatrical release.")
       ),
-      
+
       h("div", { className: "sec-head" }, "Selected Credits"),
       h("div", { className: "credits" },
         ...CREDITS_PATRICK.map(c => h("div", { className: "crow", key: c.title },
@@ -312,7 +277,7 @@ function SoundPage({ setPage }) {
         ))
       ),
       h("div", { className: "sec-head" }, "Equipment"),
-      
+
       h("table", { style: { width:"100%", borderCollapse:"collapse", marginBottom:"5rem" } },
         h("tbody", null,
           ...EQUIPMENT.map(cat =>
@@ -364,7 +329,7 @@ function PicturePage({ setPage }) {
         h("p", null, "Her co-editing work on ", h("em", null, "Navalny"), " \u2014 Daniel Roher\u2019s portrait of Russian opposition leader Alexei Navalny \u2014 earned an Academy Award\u00AE for Best Documentary Feature and a BAFTA. Her earlier work on ", h("em", null, "Jim: The James Foley Story"), " received the Sundance Audience Award. She has worked with directors including Alex Gibney, Fisher Stevens, Jehane Nourjaim, and Karim Amer, with films appearing on HBO, Netflix, and Hulu."),
         h("p", null, "She brings to each project a deep focus on the fly-on-the-wall material that reveals character and builds worlds \u2014 finding the rhythm beneath the surface of documentary footage that transforms observation into experience.")
       ),
-      
+
       h("div", { className: "sec-head sec-head-picture" }, "Selected Credits"),
       h("div", { className: "credits" },
         ...CREDITS_ALEKS.map(c => h("div", { className: "crow crow-picture", key: c.title },
