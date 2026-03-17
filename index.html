@@ -62,6 +62,11 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .home{display:flex;flex-direction:row;height:100vh;width:100vw;overflow:hidden;position:relative;}
 .half{flex:1;position:relative;cursor:pointer;overflow:hidden;min-width:0;transition:flex .78s cubic-bezier(.76,0,.24,1);}
 .half:hover{flex:1.26;}
+
+.imdb-link{display:inline-block;margin-top:1.2rem;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7bafd4;text-decoration:none;border:1px solid rgba(123,175,212,.35);padding:.5rem 1rem;transition:background .25s ease,color .25s ease;}
+.imdb-link:hover{background:rgba(123,175,212,.12);}
+.imdb-link-picture{color:#c8954a!important;border-color:rgba(200,149,74,.35)!important;}
+.imdb-link-picture:hover{background:rgba(200,149,74,.1)!important;}
 .bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.55);transform:scale(1.12);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);}
 .half:hover .bg-blur{filter:blur(16px) brightness(.65);transform:scale(1.08);}
 .wash{position:absolute;inset:0;z-index:2;}
@@ -184,38 +189,16 @@ function App() {
 
 function HomePage({ entered, setPage }) {
   return h("div", { className: "home" },
-    h("div", { className: "half", onClick: () => setPage("sound") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
-      h("div", { className: "wash wash-sound" }),
-      h("div", { className: "vign vign-left" }),
-      h("div", { className: "badges bl" },
-        h("span", { className: "badge" }, "Cannes 2025 \u00B7 The History of Sound"),
-        h("span", { className: "badge" }, "A24 \u00B7 Good Time \u00B7 If I Had Legs I'd Kick You"),
-        h("span", { className: "badge" }, "Pedro Almod\u00F3var \u00B7 The Room Next Door")
-      ),
-      h("div", { className: "hc " + (entered ? "vis" : ""), style: { transitionDelay: "0.12s" } },
-        h("div", { className: "over" }, "Sound"),
-        h("div", { className: "hname" }, "Patrick J.", h("br"), "Southern"),
-        h("div", { className: "hrole" }, "Production Sound Mixer", h("br"), "IATSE Local 52"),
-        h("button", { className: "enter-btn" }, h("span", null, "Enter"), h("span", { className: "eline" }))
-      )
-    ),
-    h("div", { className: "vdiv" }),
-    h("div", { className: "lockup " + (entered ? "vis" : "") },
-      h("div", { className: "lname" }, "Southern & Southern"),
-      h("div", { className: "lrule" }),
-      h("div", { className: "lsub" }, "LLC")
-    ),
     h("div", { className: "half", onClick: () => setPage("picture") },
       h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')" } }),
       h("div", { className: "wash wash-picture" }),
-      h("div", { className: "vign vign-right" }),
-      h("div", { className: "badges br" },
+      h("div", { className: "vign vign-left" }),
+      h("div", { className: "badges bl" },
         h("span", { className: "badge" }, "Academy Award\u00AE \u00B7 Navalny"),
         h("span", { className: "badge" }, "BAFTA \u00B7 Navalny"),
         h("span", { className: "badge" }, "Sundance Award \u00B7 Jim: The James Foley Story")
       ),
-      h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
+      h("div", { className: "hc " + (entered ? "vis" : ""), style: { transitionDelay: "0.12s" } },
         h("div", { className: "over over-picture" }, "Picture"),
         h("div", { className: "hname" }, "Aleksandra", h("br"), "Gezentsvey"),
         h("div", { className: "hrole" }, "Documentary Film Editor"),
@@ -223,6 +206,28 @@ function HomePage({ entered, setPage }) {
       )
     )
   );
+    h("div", { className: "vdiv" }),
+    h("div", { className: "lockup " + (entered ? "vis" : "") },
+      h("div", { className: "lname" }, "Southern & Southern"),
+      h("div", { className: "lrule" }),
+      h("div", { className: "lsub" }, "LLC")
+    ),
+    h("div", { className: "half", onClick: () => setPage("sound") },
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
+      h("div", { className: "wash wash-sound" }),
+      h("div", { className: "vign vign-right" }),
+      h("div", { className: "badges br" },
+        h("span", { className: "badge" }, "Cannes 2025 \u00B7 The History of Sound"),
+        h("span", { className: "badge" }, "A24 \u00B7 Good Time \u00B7 If I Had Legs I'd Kick You"),
+        h("span", { className: "badge" }, "Pedro Almod\u00F3var \u00B7 The Room Next Door")
+      ),
+      h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
+        h("div", { className: "over" }, "Sound"),
+        h("div", { className: "hname" }, "Patrick J.", h("br"), "Southern"),
+        h("div", { className: "hrole" }, "Production Sound Mixer", h("br"), "IATSE Local 52"),
+        h("button", { className: "enter-btn" }, h("span", null, "Enter"), h("span", { className: "eline" }))
+      )
+    ),
 }
 
 function SoundPage({ setPage }) {
@@ -240,7 +245,8 @@ function SoundPage({ setPage }) {
       h("div", { className: "hcont" },
         h("div", { className: "ilbl" }, "Sound"),
         h("div", { className: "iname" }, "Patrick J.", h("br"), "Southern"),
-        h("div", { className: "irole" }, "Production Sound Mixer \u00B7 IATSE Local 52")
+        h("div", { className: "irole" }, "Production Sound Mixer \u00B7 IATSE Local 52"),
+        h("a", { href: "https://www.imdb.com/name/nm5460349/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link" }, "View IMDb Profile \u2197")
       ),
 
     ),
@@ -251,7 +257,7 @@ function SoundPage({ setPage }) {
         h("p", null, "His filmography spans prestige independent cinema and major studio productions alike, with a particular affinity for projects that push the boundaries of on-set audio capture. On ", h("em", null, "The History of Sound"), ", he pursued an ambitious goal: every sound in the film \u2014 dialogue and music both \u2014 recorded live on set, including folk performances captured outdoors in the woods of New Jersey."),
         h("p", null, "He has collaborated with directors including Pedro Almod\u00F3var, the Safdie Brothers, Alex Ross Perry, and Oliver Hermanus, and his work has appeared on A24, Netflix, and in wide theatrical release.")
       ),
-      h("div", { className: "photo-ph" }, "Photo \u00B7 Patrick J. Southern"),
+      h("img", { src: "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/560d6195-05e5-48a8-9574-0846c2bd6d42/IMG_7369.jpg", alt: "Patrick J. Southern", style: { maxWidth: "300px", width: "100%", display: "block", marginBottom: "5rem", filter: "brightness(0.92)" } }),
       h("div", { className: "sec-head" }, "Selected Credits"),
       h("div", { className: "credits" },
         ...CREDITS_PATRICK.map(c => h("div", { className: "crow", key: c.title },
@@ -261,7 +267,7 @@ function SoundPage({ setPage }) {
         ))
       ),
       h("div", { className: "sec-head" }, "Equipment"),
-      h("div", { className: "eq-ph" }, "Equipment Photo \u00B7 Placeholder"),
+      h("img", { src: "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/44f561f6-a2a1-4068-9084-4a8ff9799e27/042b9b2123b8de8a391a5d38f4520db7-M.jpg", alt: "Patrick Southern equipment", style: { width: "100%", display: "block", marginBottom: "2.5rem", filter: "brightness(0.88)" } }),
       h("div", { className: "eq-grid" },
         ...EQUIPMENT.map(cat => h("div", { className: "eq-cat", key: cat.category },
           h("div", { className: "eq-cn" }, cat.category),
@@ -293,7 +299,8 @@ function PicturePage({ setPage }) {
       h("div", { className: "hcont hcont-right" },
         h("div", { className: "ilbl ilbl-picture" }, "Picture"),
         h("div", { className: "iname" }, "Aleksandra", h("br"), "Gezentsvey"),
-        h("div", { className: "irole" }, "Documentary Film Editor")
+        h("div", { className: "irole" }, "Documentary Film Editor"),
+        h("a", { href: "https://www.imdb.com/name/nm2700075/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link imdb-link-picture" }, "View IMDb Profile \u2197")
       ),
       h("div", { className: "abar abar-left" },
         h("span", { className: "aw aw-picture" }, "Academy Award\u00AE \u00B7 Navalny"),
