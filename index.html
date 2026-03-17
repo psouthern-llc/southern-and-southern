@@ -21,15 +21,13 @@
 const { useState, useEffect, createElement: h } = React;
 
 const CREDITS_PATRICK = [
-  { title: "The History of Sound", year: "2025", note: "dir. Oliver Hermanus" },
-  { title: "If I Had Legs I'd Kick You", year: "2025", note: "A24 · dir. Mary Bronstein" },
-  { title: "The Room Next Door", year: "2024", note: "dir. Pedro Almodóvar" },
-  { title: "All Too Well: The Short Film", year: "2021", note: "dir. Taylor Swift" },
-  { title: "Her Smell", year: "2018", note: "dir. Alex Ross Perry" },
-  { title: "Good Time", year: "2017", note: "A24 · dir. Safdie Brothers" },
-  { title: "Hello Again", year: "2017", note: "dir. Tom Gustafson" },
-  { title: "Hurricane Bianca", year: "2016", note: "dir. Matt Kugelman" },
-  { title: "Elaine Stritch: Shoot Me", year: "2013", note: "dir. Chiemi Karasawa" },
+  { title: "If I Had Legs I'd Kick You", year: "2025", note: "A24 · dir. Mary Bronstein · Berlinale Silver Bear" },
+  { title: "The History of Sound", year: "2025", note: "MUBI · dir. Oliver Hermanus · Cannes In Competition" },
+  { title: "All Too Well: The Short Film", year: "2021", note: "dir. Taylor Swift · Grammy Award: Best Music Video" },
+  { title: "Good Time", year: "2017", note: "A24 · dir. Safdie Brothers · Cannes In Competition" },
+  { title: "Her Smell", year: "2018", note: "dir. Alex Ross Perry · Criterion Collection" },
+  { title: "Elaine Stritch: Shoot Me", year: "2013", note: "dir. Chiemi Karasawa · Tribeca Audience Award · 99% RT" },
+  { title: "Hello Again", year: "2017", note: "dir. Tom Gustafson · Tribeca" },
 ];
 
 const CREDITS_ALEKS = [
@@ -247,7 +245,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.29"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.30"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
