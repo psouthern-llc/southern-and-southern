@@ -43,13 +43,61 @@ const CREDITS_ALEKS = [
 ];
 
 const EQUIPMENT = [
-  { category: "Mixers & Recorders", items: ["Sound Devices Scorpio", "Sound Devices 833", "Sound Devices MixPre-10T", "Zaxcom Nomad"] },
-  { category: "Microphones", items: ["Sennheiser MKH 50", "Sennheiser MKH 416", "DPA 4017B", "Sanken COS-11D Lavs", "DPA 6061 Lavs ×4"] },
-  { category: "Wireless", items: ["Lectrosonics SMQV Transmitters ×8", "Lectrosonics Receivers ×12ch", "Zaxcom ZMT3 Transmitters", "Zaxcom ERX2TCD"] },
-  { category: "Boompoles & Rigging", items: ["K-Tek Klassic Series", "Rycote InVision 7 Suspension"] },
-  { category: "Bag & Cart", items: ["Orca OR-48 Mixer Bag", "Ambient Recording Cart", "Custom wiring harness"] },
-  { category: "Timecode", items: ["Tentacle Sync E mkII ×7"] },
-  { category: "Mobile Recording", items: ["Laptop-based mobile recording rig"] },
+  { category: "Mixers & Recorders", items: [
+    "Sound Devices Scorpio (32-channel)",
+    "Sound Devices 833",
+    "Sound Devices MixPre-10T",
+  ]},
+  { category: "Microphones — Shotgun", items: [
+    "Sennheiser MKH 50",
+    "Sennheiser MKH 416",
+    "DPA 4017B",
+    "Sanken CS-3e",
+    "Schoeps MiniCMIT",
+    "Schoeps CMC6 / MK41",
+  ]},
+  { category: "Microphones — Lavalier", items: [
+    "Sanken COS-11D \u00d712",
+    "DPA 6061 \u00d73",
+    "DPA 6060",
+  ]},
+  { category: "Microphones — Gooseneck", items: [
+    "DPA 4098 \u00d72",
+  ]},
+  { category: "Wireless", items: [
+    "Lectrosonics SMQV Transmitters \u00d78",
+    "Lectrosonics SRc Receivers \u00d76 (12 channels)",
+    "Lectrosonics HMa Plug-On Transmitters \u00d73",
+    "Lectrosonics HHa Handheld Transmitter",
+    "Lectrosonics SSM Micro Transmitters \u00d72",
+  ]},
+  { category: "Booms & Rigging", items: [
+    "K-Tek Klassic Boompole",
+    "Rycote InVision 7 HG Suspension",
+  ]},
+  { category: "Rain & Wind Protection", items: [
+    "Full rain and wind protection package",
+  ]},
+  { category: "Bag & Cart", items: [
+    "Orca OR-48 Mixer Bag",
+    "INOVATIV Deploy (vertical rack-mount workstation)",
+    "INOVATIV Voyager 36\u2033 NXT",
+  ]},
+  { category: "Timecode & Slates", items: [
+    "Tentacle Sync E mkII \u00d77",
+    "Tentacle Sync TIMEBAR",
+    "Denecke TS-1 (large)",
+    "Denecke TS-C (compact)",
+  ]},
+  { category: "Video & Monitoring", items: [
+    "Blackmagic Video Assist 7\u2033 12G HDR",
+    "Hollyland Pyro H wireless HDMI system",
+  ]},
+  { category: "Client Playback", items: [
+    "Comtek PR-216 Receivers \u00d715",
+    "Comtek M-216 Transmitters \u00d72",
+    "Comtek BST-75 Base Station Transmitter",
+  ]},
 ];
 
 const SOUND_BG   = "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/560d6195-05e5-48a8-9574-0846c2bd6d42/IMG_7369.jpg";
@@ -199,7 +247,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.28"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.29"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
