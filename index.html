@@ -233,7 +233,7 @@ function App() {
   if (!unlocked) return h(PasswordGate, { onUnlock: () => setUnlocked(true) });
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.25"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.26"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -249,7 +249,7 @@ function HomePage({ entered, setPage }) {
   
       h("div", { className: "hc " + (entered ? "vis" : ""), style: { transitionDelay: "0.12s" } },
         h("div", { className: "over over-picture" }, "Picture"),
-        h("div", { className: "hname-overflow hname-overflow-right" }, "Aleksandra", h("br"), "Gezentsvey"),
+        h("div", { className: "hname-overflow hname-overflow-right" }, "Aleks", h("br"), "Gezentsvey"),
         h("div", { className: "hrole" }, "Documentarian"),
         h("button", { className: "enter-btn enter-btn-picture enter-btn-rev" }, h("span", null, "Enter"), h("span", { className: "eline eline-picture" }))
       )
@@ -347,7 +347,7 @@ function PicturePage({ setPage }) {
       h("div", { className: "htint-warm" }),
       h("div", { className: "hcont hcont-right" },
         h("div", { className: "ilbl ilbl-picture" }, "Picture"),
-        h("div", { className: "iname" }, "Aleksandra", h("br"), "Gezentsvey"),
+        h("div", { className: "iname" }, "Aleks", h("br"), "Gezentsvey"),
         h("div", { className: "irole" }, "Documentarian"),
         h("a", { href: "https://www.imdb.com/name/nm2700075/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link imdb-link-picture" }, "View IMDb Profile \u2197")
       ),
