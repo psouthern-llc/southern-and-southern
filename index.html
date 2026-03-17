@@ -245,7 +245,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.31"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.32"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -311,7 +311,7 @@ function SoundPage({ setPage }) {
       h("div", { className: "bio" },
         h("p", null, "Patrick J. Southern is a New York-based production sound mixer and a proud member of IATSE Local 52. He began his career in music production, co-founding Spaceman Sound \u2014 a recording studio in Greenpoint, Brooklyn \u2014 in 2010, before moving into film and television sound work."),
         h("p", null, "His filmography spans prestige independent cinema and major studio productions alike, with a particular affinity for projects that push the boundaries of on-set audio capture. On ", h("em", null, "The History of Sound"), ", he pursued an ambitious goal: every sound in the film \u2014 dialogue and music both \u2014 recorded live on set, including folk performances captured outdoors in the woods of New Jersey."),
-        h("p", null, "He has collaborated with directors including Pedro Almod\u00F3var, the Safdie Brothers, Alex Ross Perry, and Oliver Hermanus, and his work has appeared on A24, Netflix, and in wide theatrical release.")
+        h("p", null, "He has worked with directors including Pedro Almod\u00F3var, the Safdie Brothers, Alex Ross Perry, and Oliver Hermanus, with films released through A24, Netflix, and in wide theatrical release.")
       ),
 
       h("div", { className: "sec-head" }, "Selected Credits"),
