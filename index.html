@@ -43,12 +43,12 @@ const CREDITS_ALEKS = [
 
 const EQUIPMENT = [
   { category: "Mixers & Recorders", items: ["Sound Devices Scorpio", "Sound Devices 833", "Sound Devices MixPre-10T", "Zaxcom Nomad"] },
-  { category: "Microphones", items: ["Sennheiser MKH 50", "Sennheiser MKH 416", "DPA 4017B", "COS11 Lavs (multiple)", "DPA 6061 Lavs (x4)"] },
-  { category: "Wireless Systems", items: ["Lectrosonics Transmitters (x8)", "Lectrosonics Receivers (12 channels)", "Zaxcom ZMT3 Transmitters", "Zaxcom ERX2TCD"] },
-  { category: "Boompoles & Rigging", items: ["K-Tek Klassic Series", "Rycote InVision 7 Suspension", "Custom cart / bag configuration"] },
+  { category: "Microphones", items: ["Sennheiser MKH 50", "Sennheiser MKH 416", "DPA 4017B", "Sanken COS-11D Lavs", "DPA 6061 Lavs ×4"] },
+  { category: "Wireless", items: ["Lectrosonics SMQV Transmitters ×8", "Lectrosonics Receivers ×12ch", "Zaxcom ZMT3 Transmitters", "Zaxcom ERX2TCD"] },
+  { category: "Boompoles & Rigging", items: ["K-Tek Klassic Series", "Rycote InVision 7 Suspension"] },
   { category: "Bag & Cart", items: ["Orca OR-48 Mixer Bag", "Ambient Recording Cart", "Custom wiring harness"] },
-  { category: "Timecode", items: ["Tentacle Sync E mkII (x7)"] },
-  { category: "Mobile Recording System", items: ["Laptop-based mobile recording rig", "Full location-ready configuration"] },
+  { category: "Timecode", items: ["Tentacle Sync E mkII ×7"] },
+  { category: "Mobile Recording", items: ["Laptop-based mobile recording rig"] },
 ];
 
 const SOUND_BG   = "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/560d6195-05e5-48a8-9574-0846c2bd6d42/IMG_7369.jpg";
@@ -230,7 +230,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.20"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.21"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -309,7 +309,7 @@ function SoundPage({ setPage }) {
         ))
       ),
       h("div", { className: "sec-head" }, "Equipment"),
-      h("img", { src: "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/gear.jpg", alt: "Patrick Southern equipment", style: { width: "100%", display: "block", marginBottom: "2.5rem", borderRadius: "2px" } }),
+      
       h("div", { className: "eq-grid" },
         ...EQUIPMENT.map(cat =>
           h("div", { className: "eq-row", key: cat.category },
