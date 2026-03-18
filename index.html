@@ -21,7 +21,8 @@
 const { useState, useEffect, createElement: h } = React;
 
 const CLIENTS_PATRICK = [
-  "eBay", "Calvin Klein", "Lego", "Merck", "Columbia University", "Vera Wang", "Google",
+  "Nike", "PepsiCo", "P&G", "Google", "eBay", "Forbes", "People Magazine",
+  "Sports Illustrated", "Calvin Klein", "Vera Wang", "Lego", "Merck", "Columbia University", "Canva",
 ];
 
 const CREDITS_PATRICK = [
@@ -252,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.34"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.35"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
