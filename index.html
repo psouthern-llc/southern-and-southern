@@ -36,13 +36,12 @@ const CREDITS_PATRICK = [
 ];
 
 const CREDITS_ALEKS = [
-  { title: "Black Snow", year: "2024", note: "dir. Alina Simone · CPH:DOX F:ACT Award" },
-  { title: "Navalny", year: "2022", note: "dir. Daniel Roher · Academy Award® · BAFTA" },
-  { title: "The Deep End", year: "2022", note: "dir. Jon Kasbe · Netflix" },
-  { title: "Jim: The James Foley Story", year: "2016", note: "dir. Brian Oakes · Sundance Audience Award" },
-  { title: "The Giver", year: "2014", note: "dir. Phillip Noyce" },
-  { title: "The Bay", year: "2012", note: "dir. Barry Levinson" },
-  { title: "Salt", year: "2010", note: "dir. Phillip Noyce" },
+  { title: "Navalny", year: "2022", note: "dir. Daniel Roher · Academy Award® Best Documentary · BAFTA" },
+  { title: "The Vow", year: "2020", note: "HBO · dir. Jehane Noujaim & Karim Amer · Editor & Producer" },
+  { title: "Jim: The James Foley Story", year: "2016", note: "HBO · dir. Brian Oakes · Sundance Audience Award · Emmy" },
+  { title: "Agents of Chaos", year: "2020", note: "HBO · dir. Alex Gibney" },
+  { title: "Black Snow", year: "2024", note: "PBS POV · dir. Alina Simone · CPH:DOX Award · Exec. Prod. Erin Brockovich" },
+  { title: "Take Your Pills: Xanax", year: "2022", note: "Netflix · dir. Blair Foster" },
 ];
 
 const EQUIPMENT = [
@@ -254,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.44"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.45"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -282,7 +281,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "lsub" }, "LLC")
     ),
     h("div", { className: "half", onClick: () => setPage("sound") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundPosition: "50% 22%" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundPosition: "62% 38%" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
 
@@ -305,7 +304,7 @@ function SoundPage({ setPage }) {
       h("span", { className: "inav-co" }, "Southern & Southern LLC")
     ),
     h("div", { className: "hero" },
-      h("div", { className: "hbg", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
+      h("div", { className: "hbg", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundSize: "contain", backgroundPosition: "center 10%", backgroundColor: "#0a0a0b" } }),
       h("div", { className: "hov" }),
       h("div", { className: "htint-warm" }),
       h("div", { className: "hcont" },
@@ -353,7 +352,7 @@ function SoundPage({ setPage }) {
       ),
       h("div", { className: "cbar" },
         h("span", { className: "cbar-lbl" }, "Contact"),
-        h("a", { href: "mailto:patrick@southernandsouthern.com", className: "cbar-link" }, "patrick@southernandsouthern.com \u2197")
+        h("a", { href: "mailto:PSouthern@gmail.com", className: "cbar-link" }, "PSouthern@gmail.com \u2197")
       )
     )
   );
@@ -400,7 +399,7 @@ function PicturePage({ setPage }) {
       ),
       h("div", { className: "cbar cbar-picture" },
         h("span", { className: "cbar-lbl" }, "Contact"),
-        h("a", { href: "mailto:aleks@southernandsouthern.com", className: "cbar-link cbar-link-picture" }, "aleks@southernandsouthern.com \u2197")
+        h("a", { href: "mailto:Aleks.Gezentsvey@gmail.com", className: "cbar-link cbar-link-picture" }, "Aleks.Gezentsvey@gmail.com \u2197")
       )
     )
   );
