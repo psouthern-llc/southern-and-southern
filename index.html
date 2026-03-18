@@ -254,7 +254,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.50"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.51"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
       h("span", { className: "inav-co" }, "Southern and Southern LLC")
@@ -281,7 +281,7 @@ function HomePage({ entered, setPage }) {
     ),
     h("div", { className: "vdiv" }),
     h("div", { className: "lockup " + (entered ? "vis" : "") },
-      h("div", { className: "lname" }, "Southern and Southern"),
+      h("div", { className: "lname" }, "Southern & Southern"),
       h("div", { className: "lrule" }),
       h("div", { className: "lsub" }, "LLC")
     ),
