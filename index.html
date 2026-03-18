@@ -1,11 +1,11 @@
-<!-- Southern & Southern LLC -->
+<!-- Southern and Southern LLC -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Southern & Southern LLC</title>
-  <meta name="description" content="Southern & Southern LLC — Production Sound and Picture Editing" />
+  <title>Southern and Southern LLC</title>
+  <meta name="description" content="Southern and Southern LLC — Production Sound and Picture Editing" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0b'/><text x='16' y='26' text-anchor='middle' font-family='Georgia%2C serif' font-size='24' fill='%23ddd8d0'>%26</text></svg>" />
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -175,7 +175,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .back-btn{font-size:1rem;font-weight:400;letter-spacing:.08em;color:#7bafd4;background:none;border:none;cursor:pointer;padding:0;transition:opacity .25s ease;}
 .back-btn:hover{opacity:.7;}
 .back-btn-picture{color:#c8954a!important;}
-.inav-co{font-size:.62rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:rgba(220,215,205,.22);}
+.inav-co{font-size:.85rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(220,215,205,.55);}
 .hero{height:72vh;min-height:460px;position:relative;display:flex;align-items:flex-end;padding:4rem;overflow:hidden;}
 .hbg{position:absolute;inset:0;background-size:cover;background-position:center 30%;filter:blur(1.5px) brightness(.55);transform:scale(1.03);}.hbg-bright{filter:brightness(.82)!important;background-size:cover!important;background-position:center 20%!important;}
 .hov{position:absolute;inset:0;background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.85) 18%,rgba(9,9,11,.2) 50%,rgba(9,9,11,.05) 100%);}
@@ -254,10 +254,10 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.48"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.49"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
-      h("span", { className: "inav-co" }, "Southern & Southern LLC")
+      h("span", { className: "inav-co" }, "Southern and Southern LLC")
     ),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
@@ -281,7 +281,7 @@ function HomePage({ entered, setPage }) {
     ),
     h("div", { className: "vdiv" }),
     h("div", { className: "lockup " + (entered ? "vis" : "") },
-      h("div", { className: "lname" }, "Southern & Southern"),
+      h("div", { className: "lname" }, "Southern and Southern"),
       h("div", { className: "lrule" }),
       h("div", { className: "lsub" }, "LLC")
     ),
