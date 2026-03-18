@@ -253,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.38"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.39"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -263,7 +263,7 @@ function App() {
 function HomePage({ entered, setPage }) {
   return h("div", { className: "home" },
     h("div", { className: "half", onClick: () => setPage("picture") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')", backgroundPosition: "50% 20%" } }),
       h("div", { className: "wash wash-picture" }),
       h("div", { className: "vign vign-left" }),
 
@@ -281,7 +281,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "lsub" }, "LLC")
     ),
     h("div", { className: "half", onClick: () => setPage("sound") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundPosition: "60% 12%" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
 
