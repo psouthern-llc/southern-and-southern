@@ -122,8 +122,8 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .imdb-link-picture:hover{background:rgba(200,149,74,.1)!important;}
 
 /* Reversed blur: sharp at rest, softens on hover */
-.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(0px) brightness(.60);transform:scale(1.0);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
-.half:hover .bg-blur{filter:blur(0px) brightness(.75);transform:scale(1.04);}
+.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(6px) brightness(.55);transform:scale(1.04);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
+.half:hover .bg-blur{filter:blur(0px) brightness(.70);transform:scale(1.08);}
 
 .wash{position:absolute;inset:0;z-index:2;}
 .wash-sound{background:linear-gradient(130deg,rgba(8,20,45,.45) 0%,transparent 60%);}
@@ -177,7 +177,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .back-btn-picture{color:#c8954a!important;}
 .inav-co{font-size:.72rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(220,215,205,.55);}
 .hero{height:58vh;min-height:360px;position:relative;display:flex;align-items:flex-end;padding:3rem;overflow:hidden;}
-.hbg{position:absolute;inset:0;background-size:cover;background-position:center 30%;filter:blur(1.5px) brightness(.55);transform:scale(1.03);}.hbg-bright{filter:brightness(.82)!important;background-size:50% auto!important;background-repeat:no-repeat!important;background-position:center 15%!important;background-color:#0a0a0b!important;}
+.hbg{position:absolute;inset:0;background-size:150%;background-position:center 25%;filter:brightness(.55);transform:scale(1);}.hbg-bright{filter:brightness(.82)!important;background-size:38% auto!important;background-repeat:no-repeat!important;background-position:center 15%!important;background-color:#0a0a0b!important;}
 .hov{position:absolute;inset:0;background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.85) 18%,rgba(9,9,11,.2) 50%,rgba(9,9,11,.05) 100%);}
 .hov-amber{position:absolute;inset:0;background:linear-gradient(to top,#0a0a0b 0%,rgba(10,10,11,.85) 18%,rgba(10,10,11,.2) 50%,rgba(10,10,11,.05) 100%);}
 .hov-sides{position:absolute;inset:0;background:linear-gradient(to right,#0a0a0b 0%,transparent 25%,transparent 75%,#0a0a0b 100%);}
@@ -243,7 +243,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
   .cn{display:none;}
   .eq-list{grid-template-columns:1fr;}
   .vign-left,.vign-right{background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.55) 35%,rgba(9,9,11,.05) 65%,transparent 100%);}
-  .bg-blur{filter:blur(0px) brightness(.60);transform:scale(1.0);}
+  .bg-blur{filter:blur(6px) brightness(.55);transform:scale(1.04);}
 }
 `;
 
@@ -254,7 +254,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.57"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.58"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
       h("span", { className: "inav-co" }, "Southern and Southern LLC")
@@ -268,7 +268,7 @@ function App() {
 function HomePage({ entered, setPage }) {
   return h("div", { className: "home" },
     h("div", { className: "half", onClick: () => setPage("picture") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')", backgroundSize: "75%", backgroundRepeat: "no-repeat", backgroundPosition: "50% 20%", backgroundColor: "#0a0a0b" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')", backgroundPosition: "50% 20%" } }),
       h("div", { className: "wash wash-picture" }),
       h("div", { className: "vign vign-left" }),
 
@@ -286,7 +286,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "lsub" }, "LLC")
     ),
     h("div", { className: "half", onClick: () => setPage("sound") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundSize: "130%", backgroundPosition: "62% 38%" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundPosition: "62% 38%" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
 
