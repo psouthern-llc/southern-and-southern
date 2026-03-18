@@ -26,22 +26,22 @@ const CLIENTS_PATRICK = [
 ];
 
 const CREDITS_PATRICK = [
-  { title: "If I Had Legs I'd Kick You", year: "2025", note: "A24 · dir. Mary Bronstein · Berlinale Silver Bear" },
-  { title: "The History of Sound", year: "2025", note: "MUBI · dir. Oliver Hermanus · Cannes In Competition" },
-  { title: "All Too Well: The Short Film", year: "2021", note: "dir. Taylor Swift · Grammy Award: Best Music Video" },
-  { title: "Good Time", year: "2017", note: "A24 · dir. Safdie Brothers · Cannes In Competition" },
-  { title: "Her Smell", year: "2018", note: "dir. Alex Ross Perry · Criterion Collection" },
-  { title: "Elaine Stritch: Shoot Me", year: "2013", note: "dir. Chiemi Karasawa · Tribeca Audience Award · 99% RT" },
-  { title: "Hello Again", year: "2017", note: "dir. Tom Gustafson · Tribeca" },
+  { title: "If I Had Legs I'd Kick You", year: "2025", note: "A24 · dir. Mary Bronstein · Berlinale Silver Bear", imdb: "https://www.imdb.com/title/tt18382850/" },
+  { title: "The History of Sound", year: "2025", note: "MUBI · dir. Oliver Hermanus · Cannes In Competition", imdb: "https://www.imdb.com/title/tt15799524/" },
+  { title: "All Too Well: The Short Film", year: "2021", note: "dir. Taylor Swift · Grammy Award: Best Music Video", imdb: "https://www.imdb.com/title/tt9603082/" },
+  { title: "Good Time", year: "2017", note: "A24 · dir. Safdie Brothers · Cannes In Competition", imdb: "https://www.imdb.com/title/tt4846232/" },
+  { title: "Her Smell", year: "2018", note: "dir. Alex Ross Perry · Criterion Collection", imdb: "https://www.imdb.com/title/tt7942742/" },
+  { title: "Elaine Stritch: Shoot Me", year: "2013", note: "dir. Chiemi Karasawa · Tribeca Audience Award · 99% RT", imdb: "https://www.imdb.com/title/tt2405792/" },
+  { title: "Hello Again", year: "2017", note: "dir. Tom Gustafson · Tribeca", imdb: "https://www.imdb.com/title/tt3710966/" },
 ];
 
 const CREDITS_ALEKS = [
-  { title: "Navalny", year: "2022", note: "dir. Daniel Roher · Academy Award® Best Documentary · BAFTA" },
-  { title: "The Vow", year: "2020", note: "HBO · dir. Jehane Noujaim & Karim Amer · Editor & Producer" },
-  { title: "Jim: The James Foley Story", year: "2016", note: "HBO · dir. Brian Oakes · Sundance Audience Award · Emmy" },
-  { title: "Agents of Chaos", year: "2020", note: "HBO · dir. Alex Gibney" },
+  { title: "Navalny", year: "2022", note: "dir. Daniel Roher · Academy Award® Best Documentary · BAFTA", imdb: "https://www.imdb.com/title/tt17041964/" },
+  { title: "The Vow", year: "2020", note: "HBO · dir. Jehane Noujaim & Karim Amer · Editor & Producer", imdb: "https://www.imdb.com/title/tt10222764/" },
+  { title: "Jim: The James Foley Story", year: "2016", note: "HBO · dir. Brian Oakes · Sundance Audience Award · Emmy", imdb: "https://www.imdb.com/title/tt5278466/" },
+  { title: "Agents of Chaos", year: "2020", note: "HBO · dir. Alex Gibney", imdb: "https://www.imdb.com/title/tt12967950/" },
   { title: "Black Snow", year: "2024", note: "PBS POV · dir. Alina Simone · CPH:DOX Award · Exec. Prod. Erin Brockovich" },
-  { title: "Take Your Pills: Xanax", year: "2022", note: "Netflix · dir. Blair Foster" },
+  { title: "Take Your Pills: Xanax", year: "2022", note: "Netflix · dir. Blair Foster", imdb: "https://www.imdb.com/title/tt23556804/" },
 ];
 
 const EQUIPMENT = [
@@ -200,7 +200,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .photo-ph{max-width:300px;aspect-ratio:3/4;background:rgba(123,175,212,.03);border:1px solid rgba(123,175,212,.1);display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(220,215,205,.15);margin-bottom:5rem;}
 .photo-ph-picture{border-color:rgba(200,149,74,.1)!important;background:rgba(200,149,74,.03)!important;}
 .credits{margin-bottom:5.5rem;}
-.crow{display:grid;grid-template-columns:3.2rem 1fr auto;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid rgba(220,215,205,.06);transition:background .2s ease,padding-left .2s ease;}
+.crow{display:grid;grid-template-columns:3.2rem 1fr auto;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid rgba(220,215,205,.06);transition:background .2s ease,padding-left .2s ease;text-decoration:none;color:inherit;cursor:pointer;}
 .crow:hover{background:rgba(123,175,212,.04);padding-left:.3rem;}
 .crow-picture:hover{background:rgba(200,149,74,.04)!important;}
 .cy{font-size:.72rem;font-weight:300;color:rgba(220,215,205,.3);}
@@ -253,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.46"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.47"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -329,7 +329,7 @@ function SoundPage({ setPage }) {
 
       h("div", { className: "sec-head" }, "Narrative Film"),
       h("div", { className: "credits" },
-        ...CREDITS_PATRICK.map(c => h("div", { className: "crow", key: c.title },
+        ...CREDITS_PATRICK.map(c => h(c.imdb ? "a" : "div", { className: "crow", key: c.title, ...(c.imdb ? { href: c.imdb, target: "_blank", rel: "noopener noreferrer" } : {}) },
           h("span", { className: "cy" }, c.year),
           h("span", { className: "ct" }, c.title),
           h("span", { className: "cn" }, c.note)
@@ -391,7 +391,7 @@ function PicturePage({ setPage }) {
 
       h("div", { className: "sec-head sec-head-picture" }, "Selected Credits"),
       h("div", { className: "credits" },
-        ...CREDITS_ALEKS.map(c => h("div", { className: "crow crow-picture", key: c.title },
+        ...CREDITS_ALEKS.map(c => h(c.imdb ? "a" : "div", { className: "crow crow-picture", key: c.title, ...(c.imdb ? { href: c.imdb, target: "_blank", rel: "noopener noreferrer" } : {}) },
           h("span", { className: "cy" }, c.year),
           h("span", { className: "ct" }, c.title),
           h("span", { className: "cn" }, c.note)
