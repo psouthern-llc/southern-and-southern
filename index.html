@@ -122,8 +122,8 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .imdb-link-picture:hover{background:rgba(200,149,74,.1)!important;}
 
 /* Reversed blur: sharp at rest, softens on hover */
-.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(6px) brightness(.55);transform:scale(1.04);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
-.half:hover .bg-blur{filter:blur(0px) brightness(.70);transform:scale(1.08);}
+.bg-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(0px) brightness(.60);transform:scale(1.0);transition:filter .9s ease,transform 1s cubic-bezier(.76,0,.24,1);overflow:hidden;}
+.half:hover .bg-blur{filter:blur(0px) brightness(.75);transform:scale(1.04);}
 
 .wash{position:absolute;inset:0;z-index:2;}
 .wash-sound{background:linear-gradient(130deg,rgba(8,20,45,.45) 0%,transparent 60%);}
@@ -243,7 +243,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
   .cn{display:none;}
   .eq-list{grid-template-columns:1fr;}
   .vign-left,.vign-right{background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.55) 35%,rgba(9,9,11,.05) 65%,transparent 100%);}
-  .bg-blur{filter:blur(6px) brightness(.55);transform:scale(1.04);}
+  .bg-blur{filter:blur(0px) brightness(.60);transform:scale(1.0);}
 }
 `;
 
@@ -254,7 +254,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.56"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.57"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
       h("span", { className: "inav-co" }, "Southern and Southern LLC")
@@ -268,7 +268,7 @@ function App() {
 function HomePage({ entered, setPage }) {
   return h("div", { className: "home" },
     h("div", { className: "half", onClick: () => setPage("picture") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')", backgroundPosition: "50% 20%" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + PICTURE_BG + "')", backgroundSize: "75%", backgroundRepeat: "no-repeat", backgroundPosition: "50% 20%", backgroundColor: "#0a0a0b" } }),
       h("div", { className: "wash wash-picture" }),
       h("div", { className: "vign vign-left" }),
 
@@ -286,7 +286,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "lsub" }, "LLC")
     ),
     h("div", { className: "half", onClick: () => setPage("sound") },
-      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundPosition: "62% 38%" } }),
+      h("div", { className: "bg-blur", style: { backgroundImage: "url('" + SOUND_BG + "')", backgroundSize: "130%", backgroundPosition: "62% 38%" } }),
       h("div", { className: "wash wash-sound" }),
       h("div", { className: "vign vign-right" }),
 
