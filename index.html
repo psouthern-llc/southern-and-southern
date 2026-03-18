@@ -104,6 +104,7 @@ const EQUIPMENT = [
 ];
 
 const SOUND_BG   = "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/560d6195-05e5-48a8-9574-0846c2bd6d42/IMG_7369.jpg";
+const GEAR_IMG   = "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/gear.jpg";
 const PICTURE_BG = "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/IMG_7467.jpg";
 
 const CSS = `
@@ -253,7 +254,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.41"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.42"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -287,7 +288,7 @@ function HomePage({ entered, setPage }) {
 
       h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
         h("div", { className: "over" }, "Sound"),
-        h("div", { className: "hname-overflow hname-overflow-left" }, "Patrick J.", h("br"), "Southern"),
+        h("div", { className: "hname-overflow hname-overflow-left" }, "Patrick", h("br"), "Southern"),
         h("div", { className: "hrole" }, "Production Sound Mixer"),
         h("button", { className: "enter-btn" }, h("span", null, "Enter"), h("span", { className: "eline" }))
       )
@@ -309,15 +310,15 @@ function SoundPage({ setPage }) {
       h("div", { className: "htint-warm" }),
       h("div", { className: "hcont" },
         h("div", { className: "ilbl" }, "Sound"),
-        h("div", { className: "iname" }, "Patrick J.", h("br"), "Southern"),
-        h("div", { className: "irole" }, "Production Sound Mixer \u00B7 IATSE Local 52"),
+        h("div", { className: "iname" }, "Patrick", h("br"), "Southern"),
+        h("div", { className: "irole" }, "Production Sound Mixer"),
         h("a", { href: "https://www.imdb.com/name/nm5460349/", target: "_blank", rel: "noopener noreferrer", className: "imdb-link" }, "View IMDb Profile \u2197")
       ),
     ),
     h("div", { className: "ibody" },
       h("div", { className: "sec-head" }, "Biography"),
       h("div", { className: "bio" },
-        h("p", null, "Patrick J. Southern is a New York-based production sound mixer and a proud member of IATSE Local 52. He began his career in music production, co-founding Spaceman Sound \u2014 a recording studio in Greenpoint, Brooklyn \u2014 in 2010, before moving into commercial, film, and television sound work."),
+        h("p", null, "Patrick Southern is a New York-based production sound mixer and a proud member of IATSE Local 52. He began his career in music production, co-founding Spaceman Sound \u2014 a recording studio in Greenpoint, Brooklyn \u2014 in 2010, before moving into commercial, film, and television sound work."),
         h("p", null, "The bulk of his work is in commercial and branded content, where he has mixed national campaigns for eBay, Calvin Klein, Lego, Google, Merck, and many others \u2014 bringing the same standards to a thirty-second spot that he brings to a feature film."),
         h("p", null, "His narrative credits include films released through A24, Netflix, and MUBI, with directors including the Safdie Brothers, Alex Ross Perry, Pedro Almod\u00F3var, and Oliver Hermanus. On ", h("em", null, "The History of Sound"), ", he recorded every sound in the film live on set, including folk performances captured outdoors in the woods of New Jersey.")
       ),
@@ -336,6 +337,7 @@ function SoundPage({ setPage }) {
         ))
       ),
       h("div", { className: "sec-head" }, "Equipment"),
+      h("img", { src: GEAR_IMG, alt: "Production sound cart on set", style: { width:"100%", display:"block", marginBottom:"3rem", objectFit:"cover", maxHeight:"480px" } }),
 
       h("table", { style: { width:"100%", borderCollapse:"collapse", marginBottom:"5rem" } },
         h("tbody", null,
