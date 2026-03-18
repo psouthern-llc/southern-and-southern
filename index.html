@@ -177,7 +177,7 @@ body{overflow-x:hidden;font-family:'DM Sans',sans-serif;background:#0a0a0b;color
 .back-btn-picture{color:#c8954a!important;}
 .inav-co{font-size:.85rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(220,215,205,.55);}
 .hero{height:72vh;min-height:460px;position:relative;display:flex;align-items:flex-end;padding:4rem;overflow:hidden;}
-.hbg{position:absolute;inset:0;background-size:cover;background-position:center 30%;filter:blur(1.5px) brightness(.55);transform:scale(1.03);}.hbg-bright{filter:brightness(.82)!important;background-size:75% auto!important;background-repeat:no-repeat!important;background-position:center 15%!important;background-color:#0a0a0b!important;}
+.hbg{position:absolute;inset:0;background-size:cover;background-position:center 30%;filter:blur(1.5px) brightness(.55);transform:scale(1.03);}.hbg-bright{filter:brightness(.82)!important;background-size:50% auto!important;background-repeat:no-repeat!important;background-position:center 15%!important;background-color:#0a0a0b!important;}
 .hov{position:absolute;inset:0;background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,.85) 18%,rgba(9,9,11,.2) 50%,rgba(9,9,11,.05) 100%);}
 .hov-amber{position:absolute;inset:0;background:linear-gradient(to top,#0a0a0b 0%,rgba(10,10,11,.85) 18%,rgba(10,10,11,.2) 50%,rgba(10,10,11,.05) 100%);}
 .hov-sides{position:absolute;inset:0;background:linear-gradient(to right,#0a0a0b 0%,transparent 25%,transparent 75%,#0a0a0b 100%);}
@@ -254,7 +254,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.51"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.52"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
       h("span", { className: "inav-co" }, "Southern and Southern LLC")
