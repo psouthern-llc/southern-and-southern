@@ -253,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.36"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.37"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
@@ -288,7 +288,7 @@ function HomePage({ entered, setPage }) {
       h("div", { className: "hc hc-right " + (entered ? "vis" : ""), style: { transitionDelay: "0.3s" } },
         h("div", { className: "over" }, "Sound"),
         h("div", { className: "hname-overflow hname-overflow-left" }, "Patrick J.", h("br"), "Southern"),
-        h("div", { className: "hrole" }, "Production Sound Mixer", h("br"), "IATSE Local 52"),
+        h("div", { className: "hrole" }, "Production Sound Mixer"),
         h("button", { className: "enter-btn" }, h("span", null, "Enter"), h("span", { className: "eline" }))
       )
     )
