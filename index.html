@@ -103,7 +103,7 @@ const EQUIPMENT = [
   ]},
 ];
 
-const SOUND_BG   = "https://images.squarespace-cdn.com/content/v1/5460d401e4b08a5bd8ef5c9f/560d6195-05e5-48a8-9574-0846c2bd6d42/IMG_7369.jpg";
+const SOUND_BG   = "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/IMG_7369_clean.jpg";
 const PICTURE_BG = "https://raw.githubusercontent.com/psouthern-llc/southern-and-southern/main/IMG_7467.jpg";
 
 const CSS = `
@@ -253,7 +253,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.39"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.40"),
     page === "home"    && h(HomePage,    { entered, setPage }),
     page === "sound"   && h(SoundPage,   { setPage }),
     page === "picture" && h(PicturePage, { setPage })
