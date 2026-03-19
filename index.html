@@ -75,10 +75,6 @@ const EQUIPMENT = [
     "Lectrosonics HHa Handheld Transmitter",
     "Lectrosonics SSM Micro Transmitters \u00d72",
   ]},
-  { category: "Booms & Rigging", items: [
-    "K-Tek Klassic Boompole",
-    "Rycote InVision 7 HG Suspension",
-  ]},
   { category: "Rain & Wind Protection", items: [
     "Full rain and wind protection package",
   ]},
@@ -255,7 +251,7 @@ function App() {
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h("div", { style: { fontFamily: "'DM Sans',sans-serif", background: "#0a0a0b", minHeight: "100vh", color: "#ddd8d0" } },
     h("style", null, CSS),
-    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.59"),
+    h("div", { style: { position:"fixed", bottom:"1rem", right:"1rem", zIndex:999, fontFamily:"'DM Sans',sans-serif", fontSize:".55rem", letterSpacing:".15em", color:"rgba(220,215,205,.2)", pointerEvents:"none" } }, "v1.60"),
     page !== "home" && h("nav", { className: "inav" },
       h("button", { className: "back-btn" + (page === "picture" ? " back-btn-picture" : ""), onClick: () => setPage("home") }, "\u2190 Back"),
       h("span", { className: "inav-co" }, "Southern and Southern LLC")
